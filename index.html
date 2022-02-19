@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juggling Dice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="heading">
+        <h1>Juggling Dice</h1>
+    </div>
+
+    <div class="msg">
+        <h2 id="message">Let's Play </h2>
+    </div>
+
+    <div class="images">
+        <div class="img1">
+            <img src="images/dice-1.png" alt="Dice Pic" id="img-1">
+        </div>
+        <div class="img1">
+            <img src="images/dice-2.png" alt="Dice Pic" id="img-2">
+        </div>
+    </div>
+    
+    <div class="btn" style="display: none;" id="reset">
+        <button id="reset-btn" >Reset</button>
+    </div>
+       
+    <div class="btn" id="play-btn" style="display: none;">
+        <button id="btn-1">Player 1</button>
+        <button id="btn-2">Player 2</button>
+    </div>
+
+    <div class="btn">
+        <button id="start-btn">Let's Start</button>
+    </div> 
+
+    
+    
+    <br>
+
+                        <!-- Script  -->
+
+    <script>
+        
+        const start= document.getElementById('start-btn');
+        const playBtn = document.getElementById('play-btn');
+        const reset = document.getElementById('reset');
+        const resetPage = document.getElementById('reset-btn');
+        const player1 = document.getElementById('btn-1')
+        const player2 = document.getElementById('btn-2')
+        const message = document.getElementById('message');
+        const img1 = document.getElementById('img-1');
+        const img2 = document.getElementById('img-2');
+        let flag1 =false;
+        let flag2 =true;
+        let num1 = 0;
+        let num2 = 0;
+
+
+        const checkWinner = ()=>{
+            if(num1 > num2){
+                message.innerHTML = "✨ Hurray! Player 1 Wins ✨";
+            }
+            else if(num1 < num2){
+                message.innerHTML = "✨ Hurray! Player 2 Wins ✨";
+            }
+            else {
+                message.innerHTML = "Ops! There is a Tie 😊";
+            }
+        }
+
+        start.addEventListener('click',()=>{
+            start.setAttribute('style',"display:none;");
+            playBtn.setAttribute('style',"display:flex; align-items: center; justify-content: center;");
+            message.innerHTML = "Player 1 can togle"
+        })
+
+        player1.addEventListener('click', ()=>{
+            if(flag1){
+                alert("It's Player 2 turn");
+                return;
+            }
+            num1 = Math.ceil(Math.random()*6);
+            img1.setAttribute('src',`images/dice-${num1}.png`);
+            message.innerHTML = "Player 2 can togle";
+            flag1 = true;
+            flag2=false;
+        })
+
+        player2.addEventListener('click', ()=>{
+            if(flag2){
+                alert("It's Player 1 turn");
+                return;
+            }
+            num2 = Math.ceil(Math.random()*6);
+            img2.setAttribute('src',`images/dice-${num2}.png`);
+            checkWinner();
+            playBtn.setAttribute('style',"display:none");
+            reset.setAttribute('style',"display:flex; align-items: center; justify-content: center;");
+        })
+
+        resetPage.addEventListener('click', ()=>{
+            window.location.reload();
+        })
+        
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body{
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: black;
+    color: white;
+}
+
+.heading{
+    width: 100%;
+    height: 135px;
+    text-align: center;
+    line-height: 135px;
+    font-size: 2.8rem;
+    font-family: 'Concert One', cursive;
+    color: rgb(2, 128, 2);
+    text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+}
+
+.images{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.images .img1{
+    width: 360px;
+    height: 360px;
+    margin: 15px;
+}
+
+.images .img1 img{
+    width: 100%;
+    height: 100%;
+}
+
+.msg{
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Baloo Bhai 2', cursive;
+}
+
+.btn{
+    width: 100%;
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+}
+
+.btn button{
+    width: 90px;
+    height: 35px;
+    margin: 0px 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: rgb(255, 6, 6);
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+.btn button:hover{
+    cursor: pointer;
+    background: #fff;
+    color: rgba(0, 0, 0, 0.829);
+
+}
+
+
+
+@media (max-width:570px){
+    .heading{
+        font-size: 2.2rem;
+    }
+
+    .msg{
+        font-size: 1.0rem;
+    }
+
+    .images .img1{
+        width: 330px;
+        height: 330px;
+    }
+}
+
+@media (max-width:450px){
+    .heading{
+        font-size: 1.8rem;
+    }
+
+    .msg{
+        font-size: 0.8rem;
+    }
+
+    .images .img1{
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width:360px){
+    .heading{
+        font-size: 1.2rem;
+    }
+
+    .msg{
+        font-size: 0.4rem;
+    }
+
+    .images .img1{
+        width: 260px;
+        height: 260px;
+    }
+}
